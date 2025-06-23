@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bartzen - Móveis Planejados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background-color: #004536;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #fff;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding-top: 100px;
+      background: url('ambiente.jpg') center/cover no-repeat;
+      height: 400px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .sobre h2 span {
+      color: #00917c;
+    }
+
+    .contato-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contato-cards div {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .ambientes img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .avaliacoes {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .grupo-k1 {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .orcamento-form {
+      background: white;
+      max-width: 800px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .orcamento-form h2 {
+      text-align: center;
+      color: #004536;
+      margin-bottom: 10px;
+    }
+
+    .orcamento-form p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .orcamento-form input,
+    .orcamento-form textarea {
+      padding: 12px;
+      border: 2px solid #c58a4c;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .orcamento-form textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .captcha-img {
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 20px;
+      border-radius: 5px;
+    }
+
+    .captcha-input {
+      flex: 1;
+      border: 2px solid #004536;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .orcamento-form button {
+      background-color: #c58a4c;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #2d1c0f;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Maicon Moveis Planejados</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#ambientes">Ambientes</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero"></section>
+
+  <section id="sobre" class="sobre">
+    <h2>Bartzen: viva o seu <span>sonho</span></h2>
+    <p>Desde 2004, a Bartzen oferece soluções de móveis planejados sob medida com excelência, conforto e sofisticação. Atendemos toda a região com um time de especialistas prontos para transformar seu projeto em realidade.</p>
+  </section>
+
+  <section class="contato-cards">
+    <div>
+      <p>WhatsApp<br><strong>(11) 98765-4321</strong></p>
+    </div>
+    <div>
+      <p>Instagram<br><strong>@bartzen.oficial</strong></p>
+    </div>
+    <div>
+      <p>Email<br><strong>contato@bartzen.com</strong></p>
+    </div>
+  </section>
+
+  <section id="ambientes" class="ambientes">
+    <h2>Bartzen: móveis planejados para você</h2>
+    <div>
+      <img src="img1.jpg">
+      <img src="img2.jpg">
+      <img src="img3.jpg">
+      <img src="img4.jpg">
+    </div>
+  </section>
+
+  <section id="avaliacoes">
+    <h2>Avaliações</h2>
+    <div class="avaliacoes">
+      <p>"Muito satisfeita com os móveis planejados! Atendimento ótimo."<br><strong>- Renata Vieira</strong></p>
+    </div>
+    <div class="avaliacoes">
+      <p>"Recomendo fortemente, ótimo custo-benefício e visual impecável."<br><strong>- Lucas Torres</strong></p>
+    </div>
+  </section>
+
+  <section class="grupo-k1">
+    <img src="k1.jpg" alt="Grupo K1" width="200">
+    <p>A Bartzen faz parte do Grupo K1, maior grupo moveleiro da América Latina.</p>
+  </section>
+
+  <section class="orcamento" id="orcamento">
+    <div class="orcamento-form">
+      <h2>Solicite um Orçamento</h2>
+      <p>Nossa equipe especializada ira entrar em contato com você!</p>
+      <form action="enviar.php" method="POST">
+        <div style="display: flex; gap: 15px;">
+          <input type="text" name="nome" placeholder="Nome" required style="flex: 1;">
+          <input type="tel" name="telefone" placeholder="Telefone" required style="flex: 1;">
+        </div>
+        <input type="email" name="email" placeholder="Email" required>
+        <div style="display: flex; gap: 15px;">
+          <input type="text" name="cidade" placeholder="Cidade" required style="flex: 1;">
+          <input type="text" name="tipo_residencia" placeholder="Casa ou Apartamento" required style="flex: 1;">
+        </div>
+        <input type="text" name="ambientes" placeholder="Ambientes" required>
+        <textarea name="mensagem" placeholder="Mensagem" required></textarea>
+
+        <div class="captcha-container">
+          <div class="captcha-img">uXGAL</div>
+          <input type="text" name="captcha" placeholder="Digite aqui o captcha" class="captcha-input" required>
+          <span style="font-size: 24px; cursor: pointer;">&#x1F504;</span>
+        </div>
+
+        <button type="submit">ENVIAR MENSAGEM</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <p>Bartzen Móveis Planejados - Todos os direitos reservados © 2024</p>
+    <p>Av. do Mobiliário, 1234 - Campinas/SP<br>Email: contato@bartzen.com | Tel: (11) 98765-4321</p>
+  </footer>
+</body>
+</html>
