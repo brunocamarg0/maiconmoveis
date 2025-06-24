@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maicon Moveis - Móveis Planejados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #004536;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    header {
+      background-color: #004536;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .fullscreen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero {
+      padding-top: 80px;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 400%;
+      height: 100%;
+      display: flex;
+      animation: slide 16s infinite;
+    }
+
+    .slide {
+      width: 100vw;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(0); }
+      30% { transform: translateX(-100vw); }
+      50% { transform: translateX(-100vw); }
+      55% { transform: translateX(-200vw); }
+      75% { transform: translateX(-200vw); }
+      80% { transform: translateX(-300vw); }
+      100% { transform: translateX(-300vw); }
+    }
+
+    section {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .sobre h2 span {
+      color: #00917c;
+    }
+
+    .contato-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 60px 20px;
+    }
+
+    .contato-cards div {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .ambientes h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .ambientes > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 0 10px;
+    }
+
+    .ambientes img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    #avaliacoes h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .avaliacoes {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      max-width: 700px;
+    }
+
+    .grupo-k1 {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .grupo-k1 img {
+      border-radius: 10px;
+    }
+
+    .orcamento-form {
+      background: white;
+      max-width: 800px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .orcamento-form h2 {
+      text-align: center;
+      color: #004536;
+      margin-bottom: 10px;
+    }
+
+    .orcamento-form p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .orcamento-form input,
+    .orcamento-form textarea {
+      padding: 12px;
+      border: 2px solid #c58a4c;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .orcamento-form textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .captcha-img {
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 20px;
+      border-radius: 5px;
+    }
+
+    .captcha-input {
+      flex: 1;
+      border: 2px solid #004536;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .orcamento-form button {
+      background-color: #c58a4c;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #2d1c0f;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body id="inicio">
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <header>
+    <h1 class="logo"><a href="#inicio">Maicon Móveis Planejados</a></h1>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#ambientes">Ambientes</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="slider">
+      <div class="slide" style="background-image: url('imagens/IMG2.jpg');"></div>
+      <div class="slide" style="background-image: url('imagens/IMG3.jpg');"></div>
+      <div class="slide" style="background-image: url('imagens/IMG4.jpg');"></div>
+      <div class="slide" style="background-image: url('imagens/IMG_1579.jpeg');"></div>
+    </div>
+  </section>
+
+  <section id="sobre" class="sobre fullscreen">
+    <div class="container">
+      <h2>Maicon Melo Moveis: viva o seu <span>sonho</span></h2>
+      <p>Desde 20023, a Maicon Moveis oferece soluções de móveis planejados sob medida com excelência, conforto e sofisticação. Atendemos toda a região com um time de especialistas prontos para transformar seu projeto em realidade.</p>
+    </div>
+  </section>
+
+  <section class="contato-cards fullscreen">
+    <div><p>WhatsApp<br><strong>(19)1997106-7197</strong></p></div>
+    <div><p>Instagram<br><strong>@Maiconmelomoveis</strong></p></div>
+  </section>
+
+  <section id="ambientes" class="ambientes fullscreen">
+    <div class="container">
+      <h2>Maicon Melo: móveis planejados para você</h2>
+    </div>
+  </section>
+
+  <section id="avaliacoes" class="fullscreen">
+    <div class="container">
+      <h2>Avaliações</h2>
+      <div class="avaliacoes"><p>"Muito satisfeita com os móveis planejados! Atendimento ótimo."<br><strong>- Renata Vieira</strong></p></div>
+      <div class="avaliacoes"><p>"Recomendo fortemente, ótimo custo-benefício e visual impecável."<br><strong>- Lucas Torres</strong></p></div>
+    </div>
+  </section>
+
+  <section class="grupo-k1 fullscreen"></section>
+
+  <section class="orcamento fullscreen" id="orcamento">
+    <div class="orcamento-form">
+      <h2>Solicite um Orçamento</h2>
+      <p>Nossa equipe especializada irá entrar em contato com você!</p>
+      <form action="enviar.php" method="POST">
+        <div style="display: flex; gap: 15px;">
+          <input type="text" name="nome" placeholder="Nome" required style="flex: 1;">
+          <input type="tel" name="telefone" placeholder="Telefone" required style="flex: 1;">
+        </div>
+        <input type="email" name="email" placeholder="Email" required>
+        <div style="display: flex; gap: 15px;">
+          <input type="text" name="cidade" placeholder="Cidade" required style="flex: 1;">
+          <input type="text" name="tipo_residencia" placeholder="Casa ou Apartamento" required style="flex: 1;">
+        </div>
+        <input type="text" name="ambientes" placeholder="Ambientes" required>
+        <textarea name="mensagem" placeholder="Mensagem" required></textarea>
+        <div class="captcha-container">
+          <div class="captcha-img">uXGAL</div>
+          <input type="text" name="captcha" placeholder="Digite aqui o captcha" class="captcha-input" required>
+          <span style="font-size: 24px; cursor: pointer;">&#x1F504;</span>
+        </div>
+        <button type="submit">ENVIAR MENSAGEM</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <p>Maicon Melo Móveis Planejados - Todos os direitos reservados © 2025</p>
+    <p>Paulínia/SP<br>Email: contato@exemplo.com | Tel: (19)97106-7197</p>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
